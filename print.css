@@ -1,0 +1,9 @@
+/* ==============================================
+   RESUME STYLES — Inline embed & print version
+   ============================================== */
+
+@media print {
+  body { background: #fff; color: #000; font-family: 'Fira Code', monospace; }
+  .navbar, .matrix-canvas, footer { display: none !important; }
+  .section { padding: 1rem; }
+}

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishav Kumar Gupta | Full-Stack Developer</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ========== MATRIX CANVAS ========== -->
+  <canvas id="matrix-canvas"></canvas>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-brand">
+      <span class="prompt">~/</span><span class="brand-name">rishav</span><span class="cursor-blink">_</span>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#home" class="nav-link"><span class="cmd">cd</span> home</a></li>
+      <li><a href="#about" class="nav-link"><span class="cmd">cd</span> about</a></li>
+      <li><a href="#skills" class="nav-link"><span class="cmd">cd</span> skills</a></li>
+      <li><a href="#projects" class="nav-link"><span class="cmd">cd</span> projects</a></li>
+      <li><a href="#resume" class="nav-link"><span class="cmd">cd</span> resume</a></li>
+      <li><a href="#contact" class="nav-link"><span class="cmd">cd</span> contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="terminal-title">rishav@dev:~$</span>
+        </div>
+        <div class="terminal-body">
+          <div class="line"><span class="prompt-sym">$</span> whoami</div>
+          <div class="line output name-line" id="typed-name"></div>
+          <div class="line"><span class="prompt-sym">$</span> cat role.txt</div>
+          <div class="line output">Full-Stack Developer</div>
+          <div class="line"><span class="prompt-sym">$</span> cat tagline.txt</div>
+          <div class="line output typed-tagline" id="typed-tagline"></div>
+          <div class="line"><span class="prompt-sym">$</span> <span class="cursor-blink">▌</span></div>
+        </div>
+      </div>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary"><i class="fa fa-folder-open"></i> View Projects</a>
+        <a href="#contact" class="btn btn-secondary"><i class="fa fa-satellite-dish"></i> Contact Me</a>
+        <a href="resume.html" target="_blank" class="btn btn-outline"><i class="fa fa-file-pdf"></i> View Resume</a>
+      </div>
+      <div class="social-bar">
+        <a href="https://github.com/rishav1727" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rishav-kumar-gupta-471207292/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:rishavofficials1727@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+916207113563" class="social-icon" title="Phone"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="prompt">$</span> <span class="sec-title">cat summary.md</span>
+      </div>
+      <div class="about-grid">
+        <div class="about-avatar">
+          <div class="avatar-frame">
+            <div class="avatar-inner">
+              <span class="avatar-initials">RKG</span>
+            </div>
+            <div class="avatar-ring"></div>
+            <div class="avatar-status"><span class="status-dot"></span> Available for Roles</div>
+          </div>
+        </div>
+        <div class="about-text">
+          <div class="info-block">
+            <div class="info-line"><span class="key">name:</span> <span class="val">Rishav Kumar Gupta</span></div>
+            <div class="info-line"><span class="key">degree:</span> <span class="val">B.Tech Information Technology (2023–2027 Expected)</span></div>
+            <div class="info-line"><span class="key">college:</span> <span class="val">ABES Engineering College, AKTU, Ghaziabad (CGPA: 7.5)</span></div>
+            <div class="info-line"><span class="key">location:</span> <span class="val">Ghaziabad, UP, India</span></div>
+            <div class="info-line"><span class="key">phone:</span> <span class="val">+91-6207113563</span></div>
+            <div class="info-line"><span class="key">email:</span> <span class="val">rishavofficials1727@gmail.com</span></div>
+            <div class="info-line"><span class="key">status:</span> <span class="val green-text">Open to Full-Stack &amp; Software Developer roles</span></div>
+          </div>
+          <p class="about-para">
+            Full-Stack Developer and final-year B.Tech Information Technology student (2027) with 1+ year of hands-on experience designing and shipping production-grade web applications using <span class="highlight">React.js</span>, <span class="highlight">Node.js</span>, <span class="highlight">Express</span>, and <span class="highlight">PostgreSQL/MongoDB</span>.
+          </p>
+          <p class="about-para">
+            Skilled in RESTful API design, JWT authentication, database optimization, and CI/CD automation with a track record of improving performance and reliability for platforms supporting 100+ concurrent users, including a <span class="highlight">20% cut in latency</span>, a <span class="highlight">25% faster page load</span>, and an <span class="highlight">80% reduction in manual testing effort</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section class="section alt-bg" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="prompt">$</span> <span class="sec-title">cat technical_skills.json</span>
+      </div>
+      <div class="skills-categories">
+
+        <div class="skill-cat">
+          <h3 class="cat-title"><i class="fas fa-desktop"></i> Frontend</h3>
+          <div class="skill-tags">
+            <span class="tag">React.js</span>
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">Responsive UI</span>
+            <span class="tag">Component Architecture</span>
+            <span class="tag">Core Web Vitals Optimization</span>
+          </div>
+        </div>
+
+        <div class="skill-cat">
+          <h3 class="cat-title"><i class="fas fa-server"></i> Backend</h3>
+          <div class="skill-tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">RESTful API Design</span>
+            <span class="tag">JWT Authentication</span>
+            <span class="tag">C# / .NET Basics</span>
+          </div>
+        </div>
+
+        <div class="skill-cat">
+          <h3 class="cat-title"><i class="fas fa-database"></i> Databases</h3>
+          <div class="skill-tags">
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Query Optimization</span>
+            <span class="tag">Schema Design</span>
+            <span class="tag">Redis</span>
+          </div>
+        </div>
+
+        <div class="skill-cat">
+          <h3 class="cat-title"><i class="fas fa-tools"></i> DevOps &amp; Cloud</h3>
+          <div class="skill-tags">
+            <span class="tag">Git / GitHub</span>
+            <span class="tag">GitHub Actions CI/CD</span>
+            <span class="tag">Docker</span>
+            <span class="tag">AWS (EC2, S3)</span>
+            <span class="tag">Azure Fundamentals</span>
+            <span class="tag">Vercel / Render</span>
+            <span class="tag">Postman</span>
+          </div>
+        </div>
+
+        <div class="skill-cat">
+          <h3 class="cat-title"><i class="fas fa-code"></i> Languages &amp; Practices</h3>
+          <div class="skill-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Python</span>
+            <span class="tag">C++</span>
+            <span class="tag">Java</span>
+            <span class="tag">C#</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Agile / Scrum</span>
+            <span class="tag">OOAD / OOP Design Patterns</span>
+            <span class="tag">OWASP Top 10</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="prompt">$</span> <span class="sec-title">ls -la projects/</span>
+      </div>
+      <div class="projects-grid">
+
+        <!-- Project 1 -->
+        <div class="project-card">
+          <div class="card-header">
+            <i class="fas fa-shopping-cart folder-icon"></i>
+            <div class="card-links">
+              <a href="#" target="_blank" title="GitHub Code"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Full-Stack E-Commerce Platform with Stripe &amp; Microservices</h3>
+          <p class="project-desc">
+            Architected a microservices backend (auth, catalog, order) containerized with Docker on AWS EC2 with S3. Integrated Stripe payments achieving 99.9% success over 500+ test transactions. Added Redis caching &amp; Socket.io real-time tracking, reducing API response time by 45% under 200+ concurrent users.
+          </p>
+          <div class="project-tags">
+            <span class="ptag">React.js</span>
+            <span class="ptag">Node.js/Express</span>
+            <span class="ptag">PostgreSQL</span>
+            <span class="ptag">Redis</span>
+            <span class="ptag">Docker</span>
+            <span class="ptag">Stripe API</span>
+            <span class="ptag">AWS EC2/S3</span>
+            <span class="ptag">Socket.io</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card">
+          <div class="card-header">
+            <i class="fas fa-tasks folder-icon"></i>
+            <div class="card-links">
+              <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Task Management App with Analytical Dashboard</h3>
+          <p class="project-desc">
+            End-to-end task management platform using OOAD/OOP patterns with real-time dashboards visualizing 5+ completion metrics for 100+ concurrent users at 99%+ uptime. Built 15+ REST endpoints with Postman automation and cut deployment time by 35% via GitHub Actions CI/CD.
+          </p>
+          <div class="project-tags">
+            <span class="ptag">React.js</span>
+            <span class="ptag">Node.js</span>
+            <span class="ptag">PostgreSQL</span>
+            <span class="ptag">Supabase</span>
+            <span class="ptag">JWT Auth</span>
+            <span class="ptag">GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card">
+          <div class="card-header">
+            <i class="fas fa-vial folder-icon"></i>
+            <div class="card-links">
+              <a href="#" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <h3 class="project-title">Automated API Test Framework &amp; Data Validation Pipeline</h3>
+          <p class="project-desc">
+            Reusable test suite for 20+ endpoints built with Python and Pytest, cutting manual testing effort by 80% and QA cycle time from 8 hours to under 90 minutes. Integrated into GitHub Actions CI/CD reaching 90%+ test coverage across dev, staging, and production.
+          </p>
+          <div class="project-tags">
+            <span class="ptag">Python</span>
+            <span class="ptag">Pytest</span>
+            <span class="ptag">GitHub Actions</span>
+            <span class="ptag">JSON Data-Driven</span>
+            <span class="ptag">CI/CD</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== RESUME / EXPERIENCE ========== -->
+  <section class="section alt-bg" id="resume">
+    <div class="container">
+      <div class="section-header">
+        <span class="prompt">$</span> <span class="sec-title">cat experience_and_education.txt</span>
+      </div>
+      <div class="resume-container">
+
+        <div class="resume-col">
+          <!-- Experience -->
+          <div class="resume-block">
+            <h3 class="rb-title"><i class="fas fa-briefcase"></i> Professional Experience</h3>
+            <div class="rb-item">
+              <div class="rb-item-title">Front-End Development Intern</div>
+              <div class="rb-item-org">Pratinik Infotech (Remote)</div>
+              <div class="rb-item-date">Jan 2025 – Feb 2025</div>
+              <ul class="rb-list">
+                <li>Shipped UI components across 10+ pages achieving 95% design fidelity; cut bug resolution time by 40% through root-cause analysis and OOP component architecture.</li>
+                <li>Improved Core Web Vitals by analyzing 8+ render-blocking resources and implementing fixes that accelerated page load times by 25%.</li>
+                <li>Delivered zero-defect releases across 4+ Agile/Scrum sprints via Git/GitHub peer review; documented 15+ workflow improvements, cutting onboarding time ~30%.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Education -->
+          <div class="resume-block">
+            <h3 class="rb-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+            <div class="rb-item">
+              <div class="rb-item-title">B.Tech – Information Technology</div>
+              <div class="rb-item-org">ABES Engineering College, AKTU, Ghaziabad</div>
+              <div class="rb-item-date">2023 – 2027 (Expected) | CGPA: 7.5</div>
+              <div class="rb-item-desc">Relevant Coursework: DSA, OOP (OOAD), Operating Systems, DBMS, Computer Networks</div>
+            </div>
+            <div class="rb-item">
+              <div class="rb-item-title">Class XII (CBSE)</div>
+              <div class="rb-item-org">St. Xavier High School, Deoghar</div>
+              <div class="rb-item-date">2022 | Percentage: 74.4%</div>
+            </div>
+            <div class="rb-item">
+              <div class="rb-item-title">Class X (ICSE)</div>
+              <div class="rb-item-org">St. Francis School, Jasidih</div>
+              <div class="rb-item-date">2020 | Percentage: 80.4%</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="resume-col">
+          <!-- Certifications & Achievements -->
+          <div class="resume-block">
+            <h3 class="rb-title"><i class="fas fa-certificate"></i> Certifications &amp; Achievements</h3>
+            <ul class="rb-list">
+              <li><strong>Introduction to Generative AI</strong> — Amazon Web Services (AWS)</li>
+              <li><strong>Networking Fundamentals &amp; Packet Tracer</strong> — Cisco (TCP/IP, Network Protocols)</li>
+              <li><strong>Competitive Programming:</strong> 200+ problems solved on LeetCode and HackerRank</li>
+              <li>Track record of reducing latency by 20% &amp; accelerating page loads by 25% in production apps</li>
+              <li>Reduced QA cycle time from 8 hours to &lt;90 minutes using Python/Pytest automation</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+      <div class="resume-cta">
+        <a href="resume.html" target="_blank" class="btn btn-primary"><i class="fas fa-external-link-alt"></i> Open Printable Resume / Export PDF</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROFILES / LINKS ========== -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="prompt">$</span> <span class="sec-title">cat links.json</span>
+      </div>
+      <div class="links-grid">
+
+        <a href="https://www.linkedin.com/in/rishav-kumar-gupta-471207292/" target="_blank" class="link-card linkedin">
+          <i class="fab fa-linkedin link-icon"></i>
+          <div class="link-info">
+            <span class="link-platform">LinkedIn</span>
+            <span class="link-handle">Rishav Kumar Gupta</span>
+            <span class="link-desc">Professional network &amp; experience</span>
+          </div>
+          <i class="fas fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a href="mailto:rishavofficials1727@gmail.com" class="link-card email">
+          <i class="fas fa-envelope link-icon"></i>
+          <div class="link-info">
+            <span class="link-platform">Email</span>
+            <span class="link-handle">rishavofficials1727@gmail.com</span>
+            <span class="link-desc">Get in touch via email</span>
+          </div>
+          <i class="fas fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a href="tel:+916207113563" class="link-card codechef">
+          <i class="fas fa-phone link-icon"></i>
+          <div class="link-info">
+            <span class="link-platform">Phone</span>
+            <span class="link-handle">+91-6207113563</span>
+            <span class="link-desc">Direct contact</span>
+          </div>
+          <i class="fas fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a href="https://github.com/rishav1727" target="_blank" class="link-card github">
+          <i class="fab fa-github link-icon"></i>
+          <div class="link-info">
+            <span class="link-platform">GitHub</span>
+            <span class="link-handle">Rishav Kumar Gupta</span>
+            <span class="link-desc">Repositories &amp; project source code</span>
+          </div>
+          <i class="fas fa-arrow-right link-arrow"></i>
+        </a>
+
+        <a href="https://leetcode.com" target="_blank" class="link-card leetcode">
+          <i class="fas fa-laptop-code link-icon"></i>
+          <div class="link-info">
+            <span class="link-platform">LeetCode &amp; HackerRank</span>
+            <span class="link-handle">200+ Problems Solved</span>
+            <span class="link-desc">DSA &amp; competitive programming</span>
+          </div>
+          <i class="fas fa-arrow-right link-arrow"></i>
+        </a>
+
+      </div>
+
+      <div class="contact-form-wrap">
+        <div class="section-header" style="margin-top:3rem;">
+          <span class="prompt">$</span> <span class="sec-title">./send_message.sh</span>
+        </div>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Subject</label>
+            <input type="text" placeholder="Subject" required />
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea rows="5" placeholder="Your message..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Send Message</button>
+          <div class="form-msg" id="form-msg"></div>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="footer-content">
+      <span class="prompt">~/rishav$</span>
+      <span class="footer-text">Crafted by Rishav Kumar Gupta &nbsp;|&nbsp; Full-Stack Developer</span>
+      <span class="footer-year">© 2025</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

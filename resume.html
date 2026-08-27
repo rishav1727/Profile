@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rishav Kumar Gupta — Resume | Full-Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ============ RESUME PAGE STYLES ============ */
+    :root {
+      --green: #00cc33;
+      --bg: #0a0a0a;
+      --text: #d0ffd0;
+      --text-dim: #99cc99;
+      --text-muted: #6b8f6b;
+      --border: rgba(0,204,51,0.25);
+      --font: 'Fira Code', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    a { color: var(--green); text-decoration: none; }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .print-btn {
+      position: fixed;
+      top: 1.5rem; right: 1.5rem;
+      background: var(--green);
+      color: #000;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 999;
+    }
+    .print-btn:hover { background: #00ff55; }
+
+    .back-btn {
+      position: fixed;
+      top: 1.5rem; left: 1.5rem;
+      background: transparent;
+      color: var(--green);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      font-family: var(--font);
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      z-index: 999;
+      text-decoration: none;
+    }
+    .back-btn:hover { background: rgba(0,204,51,0.1); }
+
+    /* ===== RESUME CARD ===== */
+    .resume-page {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 40px rgba(0,204,51,0.15);
+      padding: 3rem;
+      padding-top: 3.5rem;
+    }
+
+    /* ----- HEADER ----- */
+    .r-header {
+      text-align: center;
+      padding-bottom: 1.2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .r-name {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 2px;
+    }
+    .r-contacts {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.82rem;
+      color: var(--text-dim);
+      margin-top: 0.5rem;
+    }
+    .r-contacts a { color: var(--green); }
+    .r-contacts span { display: flex; align-items: center; gap: 4px; }
+
+    /* ----- SECTIONS ----- */
+    .r-section { margin-bottom: 1.5rem; }
+    .r-sec-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.3rem;
+      margin-bottom: 0.8rem;
+    }
+
+    /* Summary */
+    .r-summary { color: var(--text-dim); font-size: 0.84rem; line-height: 1.6; }
+
+    /* Skills */
+    .r-skill-row { margin-bottom: 0.4rem; font-size: 0.82rem; line-height: 1.6; }
+    .r-skill-label { font-weight: 700; color: var(--green); }
+
+    /* Entries */
+    .r-entry { margin-bottom: 1rem; }
+    .r-entry-header { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 0.5rem; }
+    .r-entry-title { color: var(--text); font-weight: 700; font-size: 0.88rem; }
+    .r-entry-date { color: var(--text-muted); font-size: 0.78rem; }
+    .r-entry-bullets { color: var(--text-dim); font-size: 0.81rem; line-height: 1.6; margin-top: 0.3rem; }
+    .r-entry-bullets li { position: relative; padding-left: 1rem; margin-bottom: 4px; }
+    .r-entry-bullets li::before { content: '•'; position: absolute; left: 0; color: var(--green); }
+
+    /* Projects */
+    .r-proj-item { margin-bottom: 1rem; }
+    .r-proj-title { color: var(--text); font-weight: 700; font-size: 0.88rem; display: flex; justify-content: space-between; flex-wrap: wrap; }
+    .r-proj-stack { color: var(--text-muted); font-size: 0.76rem; margin-bottom: 0.3rem; }
+
+    /* Achievements */
+    .r-ach-list { color: var(--text-dim); font-size: 0.82rem; line-height: 1.7; }
+    .r-ach-list li { position: relative; padding-left: 1rem; margin-bottom: 4px; }
+    .r-ach-list li::before { content: '•'; position: absolute; left: 0; color: var(--green); }
+
+    /* ===== PRINT ===== */
+    @media print {
+      body { background: #fff; color: #000; padding: 0; }
+      .resume-page { background: #fff; color: #000; border: none; box-shadow: none; padding: 2rem; border-radius: 0; max-width: 100%; }
+      .print-btn, .back-btn { display: none !important; }
+      .r-name, .r-sec-title, .r-skill-label { color: #004400; }
+      .r-contacts, .r-summary, .r-entry-date, .r-entry-bullets, .r-proj-stack, .r-ach-list { color: #222; }
+      .r-entry-bullets li::before, .r-ach-list li::before { color: #004400; }
+      .r-header, .r-sec-title { border-color: #004400; }
+      a { color: #004400; text-decoration: underline; }
+    }
+
+    @media (max-width: 600px) {
+      .r-contacts { flex-direction: column; align-items: center; gap: 4px; }
+      .resume-page { padding: 4rem 1.2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Back to Portfolio</a>
+  <button class="print-btn" onclick="window.print()"><i class="fas fa-print"></i> Print / Save PDF</button>
+
+  <div class="resume-page">
+
+    <!-- HEADER -->
+    <div class="r-header">
+      <div class="r-name">RISHAV KUMAR GUPTA</div>
+      <div class="r-contacts">
+        <span>Ghaziabad, UP</span> |
+        <span><i class="fas fa-phone"></i> +91-6207113563</span> |
+        <span><i class="fas fa-envelope"></i> <a href="mailto:rishavofficials1727@gmail.com">rishavofficials1727@gmail.com</a></span> |
+        <span><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/rishav-kumar-gupta-471207292/" target="_blank">LinkedIn</a></span> |
+        <span><i class="fab fa-github"></i> <a href="https://github.com/rishav1727" target="_blank">GitHub</a></span>
+      </div>
+    </div>
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <div class="r-section">
+      <div class="r-sec-title">Professional Summary</div>
+      <p class="r-summary">
+        Full-Stack Developer and final-year B.Tech Information Technology student (2027) with 1+ year of hands-on experience designing and shipping production-grade web applications using React.js, Node.js, Express, and PostgreSQL/MongoDB. Skilled in RESTful API design, JWT authentication, database optimization, and CI/CD automation with a track record of improving performance and reliability for platforms supporting 100+ concurrent users, including a 20% cut in latency, a 25% faster page load, and an 80% reduction in manual testing effort.
+      </p>
+    </div>
+
+    <!-- TECHNICAL SKILLS -->
+    <div class="r-section">
+      <div class="r-sec-title">Technical Skills</div>
+      <div class="r-skill-row"><span class="r-skill-label">Frontend:</span> React.js, JavaScript (ES6+), HTML5/CSS3, Responsive UI, Component Architecture, Core Web Vitals Optimization</div>
+      <div class="r-skill-row"><span class="r-skill-label">Backend:</span> Node.js, Express.js, RESTful API Design, JWT Authentication, C#/.NET Basics</div>
+      <div class="r-skill-row"><span class="r-skill-label">Databases:</span> PostgreSQL, MySQL, MongoDB, Supabase, Query Optimization, Schema Design</div>
+      <div class="r-skill-row"><span class="r-skill-label">DevOps &amp; Cloud:</span> Git/GitHub, GitHub Actions CI/CD, Docker, AWS &amp; Azure Fundamentals, Vercel, Render, Postman</div>
+      <div class="r-skill-row"><span class="r-skill-label">Languages &amp; Practices:</span> JavaScript, Python, C++, Java, C#, SQL — Agile/Scrum, OOAD, OOP Design Patterns, SDLC, OWASP Top 10</div>
+    </div>
+
+    <!-- PROFESSIONAL EXPERIENCE -->
+    <div class="r-section">
+      <div class="r-sec-title">Professional Experience</div>
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <span class="r-entry-title">Front-End Development Intern — Pratinik Infotech (Remote)</span>
+          <span class="r-entry-date">Jan 2025 – Feb 2025</span>
+        </div>
+        <ul class="r-entry-bullets">
+          <li>Shipped UI components across 10+ pages achieving 95% design fidelity; cut bug resolution time by 40% through root-cause analysis and OOP-based component architecture.</li>
+          <li>Improved Core Web Vitals by analyzing 8+ render-blocking resources and implementing fixes that accelerated page load times by 25%.</li>
+          <li>Delivered zero-defect releases across 4+ Agile/Scrum sprints via Git/GitHub peer review; documented 15+ workflow improvements, cutting onboarding time ~30%.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PROJECTS -->
+    <div class="r-section">
+      <div class="r-sec-title">Projects</div>
+
+      <!-- Project 1 -->
+      <div class="r-proj-item">
+        <div class="r-proj-title">
+          <span>Full-Stack E-Commerce Platform with Stripe Payments &amp; Microservices</span>
+        </div>
+        <div class="r-proj-stack">React.js | Node.js/Express | PostgreSQL | Redis | Docker | Stripe API | AWS (EC2, S3) | Socket.io</div>
+        <ul class="r-entry-bullets">
+          <li>Architected a microservices backend (auth, catalog, order services) containerized with Docker and deployed on AWS EC2 with S3 for static assets, keeping each service independently scalable.</li>
+          <li>Integrated Stripe for payments with webhook-driven order fulfillment, reaching a 99.9% payment success rate across 500+ test transactions.</li>
+          <li>Added a Redis caching layer and real-time order tracking via Socket.io, cutting average API response time by 45% under 200+ concurrent users with live status updates on both dashboards.</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="r-proj-item">
+        <div class="r-proj-title">
+          <span>Task Management App with Analytical Dashboard &nbsp;|&nbsp; <a href="#" target="_blank">Live Demo</a></span>
+        </div>
+        <div class="r-proj-stack">React.js | Node.js | PostgreSQL | Supabase | JWT Authentication</div>
+        <ul class="r-entry-bullets">
+          <li>Architected an end-to-end app using OOAD/OOP patterns with real-time dashboards visualizing 5+ task-completion metrics for 100+ concurrent users at 99%+ uptime.</li>
+          <li>Built and tested 15+ REST endpoints with 50+ Postman cases; resolved JWT auth failures and 3+ race conditions via root-cause analysis.</li>
+          <li>Cut deployment time by 35% across Vercel/Render staging environments with automated GitHub Actions CI/CD and zero-downtime releases.</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="r-proj-item">
+        <div class="r-proj-title">
+          <span>Automated API Test Framework &amp; Data Validation Pipeline &nbsp;|&nbsp; <a href="#" target="_blank">GitHub</a></span>
+        </div>
+        <div class="r-proj-stack">Python | Pytest | GitHub Actions | JSON Data-Driven Testing</div>
+        <ul class="r-entry-bullets">
+          <li>Built a reusable test suite for 20+ endpoints, cutting manual testing effort by 80% and QA cycle time from 8 hours to under 90 minutes per sprint.</li>
+          <li>Wired unit tests into GitHub Actions CI/CD on every commit, reaching 90%+ coverage across dev, staging, and production using data-driven JSON fixtures.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- EDUCATION -->
+    <div class="r-section">
+      <div class="r-sec-title">Education</div>
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <span class="r-entry-title">B.Tech – Information Technology, ABES Engineering College, AKTU, Ghaziabad &nbsp;|&nbsp; CGPA: 7.5</span>
+          <span class="r-entry-date">2023 – 2027 (Expected)</span>
+        </div>
+        <div class="r-proj-stack">Relevant Coursework: DSA, OOP (OOAD), Operating Systems, DBMS, Computer Networks</div>
+      </div>
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <span class="r-entry-title">Class XII (CBSE), St. Xavier High School, Deoghar &nbsp;|&nbsp; 74.4%</span>
+          <span class="r-entry-date">2022</span>
+        </div>
+      </div>
+      <div class="r-entry">
+        <div class="r-entry-header">
+          <span class="r-entry-title">Class X (ICSE), St. Francis School, Jasidih &nbsp;|&nbsp; 80.4%</span>
+          <span class="r-entry-date">2020</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+    <div class="r-section">
+      <div class="r-sec-title">Certifications &amp; Achievements</div>
+      <ul class="r-ach-list">
+        <li>Introduction to Generative AI — Amazon Web Services (AWS)</li>
+        <li>Networking Fundamentals &amp; Packet Tracer — Cisco (TCP/IP, Network Protocols)</li>
+        <li>Competitive Programming: 200+ problems solved on LeetCode and HackerRank</li>
+      </ul>
+    </div>
+
+  </div><!-- end .resume-page -->
+
+</body>
+</html>
