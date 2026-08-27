@@ -15,7 +15,7 @@
 
   <!-- ========== NAVBAR ========== -->
   <nav class="navbar" id="navbar">
-    <div class="nav-brand">
+    <div class="nav-brand" onclick="window.scrollTo({top:0, behavior:'smooth'})">
       <span class="prompt">~/</span><span class="brand-name">rishav</span><span class="cursor-blink">_</span>
     </div>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
@@ -29,6 +29,18 @@
       <li><a href="#resume" class="nav-link"><span class="cmd">cd</span> resume</a></li>
       <li><a href="#contact" class="nav-link"><span class="cmd">cd</span> contact</a></li>
     </ul>
+
+    <!-- Controls: Theme Dots, CRT Toggle, SFX Toggle -->
+    <div class="nav-controls">
+      <div class="theme-dots" title="Switch Theme Accent">
+        <span class="theme-dot green" data-color="#00ff41" title="Matrix Green"></span>
+        <span class="theme-dot cyan" data-color="#00f3ff" title="Cyber Cyan"></span>
+        <span class="theme-dot amber" data-color="#ffaa00" title="Amber Orange"></span>
+        <span class="theme-dot purple" data-color="#b026ff" title="Neon Purple"></span>
+      </div>
+      <button class="toggle-btn" id="crt-toggle" title="Toggle CRT Scanline Effect"><i class="fas fa-tv"></i> CRT: OFF</button>
+      <button class="toggle-btn" id="sfx-toggle" title="Toggle Sound Effects"><i class="fas fa-volume-up"></i> SFX: ON</button>
+    </div>
   </nav>
 
   <!-- ========== HERO ========== -->
@@ -36,31 +48,56 @@
     <div class="hero-content">
       <div class="terminal-window">
         <div class="terminal-header">
-          <span class="dot red"></span>
-          <span class="dot yellow"></span>
-          <span class="dot green"></span>
-          <span class="terminal-title">rishav@dev:~$</span>
+          <div class="terminal-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+            <span class="terminal-title">rishav@dev-workstation:~$</span>
+          </div>
+          <span class="terminal-badge"><i class="fas fa-shield-alt"></i> SYSTEM ACTIVE</span>
         </div>
         <div class="terminal-body">
           <div class="line"><span class="prompt-sym">$</span> whoami</div>
-          <div class="line output name-line" id="typed-name"></div>
+          <div class="line output name-line glitch" id="typed-name" data-text="Rishav Kumar Gupta">Rishav Kumar Gupta</div>
           <div class="line"><span class="prompt-sym">$</span> cat role.txt</div>
-          <div class="line output">Full-Stack Developer</div>
+          <div class="line output green-text">Full-Stack Developer &amp; IT Engineer</div>
           <div class="line"><span class="prompt-sym">$</span> cat tagline.txt</div>
-          <div class="line output typed-tagline" id="typed-tagline"></div>
+          <div class="line output typed-tagline" id="typed-tagline">Designing &amp; shipping production-grade web apps with React, Node &amp; Docker.</div>
           <div class="line"><span class="prompt-sym">$</span> <span class="cursor-blink">▌</span></div>
         </div>
       </div>
+
+      <!-- Live Stats Cards -->
+      <div class="stats-strip">
+        <div class="stat-card">
+          <div class="stat-val">-20%</div>
+          <div class="stat-lbl">API Latency Cut</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">+25%</div>
+          <div class="stat-lbl">Faster Core Web Vitals</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">-80%</div>
+          <div class="stat-lbl">Manual QA Time Cut</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-val">200+</div>
+          <div class="stat-lbl">DSA Problems Solved</div>
+        </div>
+      </div>
+
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary"><i class="fa fa-folder-open"></i> View Projects</a>
-        <a href="#contact" class="btn btn-secondary"><i class="fa fa-satellite-dish"></i> Contact Me</a>
-        <a href="resume.html" target="_blank" class="btn btn-outline"><i class="fa fa-file-pdf"></i> View Resume</a>
+        <a href="#terminal-drawer" class="btn btn-secondary"><i class="fas fa-terminal"></i> Try Interactive CLI</a>
+        <a href="resume.html" target="_blank" class="btn btn-outline"><i class="fa fa-file-pdf"></i> Printable Resume</a>
       </div>
+
       <div class="social-bar">
-        <a href="https://github.com/rishav1727" target="_blank" class="social-icon" title="GitHub"><i class="fab fa-github"></i></a>
-        <a href="https://www.linkedin.com/in/rishav-kumar-gupta-471207292/" target="_blank" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="mailto:rishavofficials1727@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
-        <a href="tel:+916207113563" class="social-icon" title="Phone"><i class="fas fa-phone"></i></a>
+        <a href="https://github.com/rishav1727" target="_blank" class="social-icon" title="GitHub Profile"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/rishav-kumar-gupta-471207292/" target="_blank" class="social-icon" title="LinkedIn Profile"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:rishavofficials1727@gmail.com" class="social-icon" title="Email Me"><i class="fas fa-envelope"></i></a>
+        <a href="tel:+916207113563" class="social-icon" title="Call Me"><i class="fas fa-phone"></i></a>
       </div>
     </div>
   </section>
@@ -68,6 +105,25 @@
   <!-- ========== ABOUT ========== -->
   <section class="section" id="about">
     <div class="container">
+
+      <!-- INTERACTIVE TERMINAL DRAWER -->
+      <div class="cli-drawer" id="terminal-drawer">
+        <div class="cli-header">
+          <span class="cli-title"><i class="fas fa-terminal"></i> Interactive Shell Console</span>
+          <span class="cli-hint">Type <span class="green-text">help</span>, <span class="green-text">whoami</span>, <span class="green-text">skills</span>, <span class="green-text">projects</span>, <span class="green-text">metrics</span>, or <span class="green-text">theme cyan</span></span>
+        </div>
+        <div class="cli-body" id="cli-body">
+          <div class="cli-history" id="cli-history">
+            <div class="cli-line">Rishav OS v2.5 [Hacker Terminal Edition]</div>
+            <div class="cli-line">Type '<span class="green-text">help</span>' for available commands or try '<span class="green-text">metrics</span>'</div>
+          </div>
+          <div class="cli-input-row">
+            <span class="cli-prompt">visitor@rishav-pc:~$</span>
+            <input type="text" class="cli-input" id="cli-input" placeholder="type a command..." autocomplete="off" />
+          </div>
+        </div>
+      </div>
+
       <div class="section-header">
         <span class="prompt">$</span> <span class="sec-title">cat summary.md</span>
       </div>
@@ -95,7 +151,7 @@
             Full-Stack Developer and final-year B.Tech Information Technology student (2027) with 1+ year of hands-on experience designing and shipping production-grade web applications using <span class="highlight">React.js</span>, <span class="highlight">Node.js</span>, <span class="highlight">Express</span>, and <span class="highlight">PostgreSQL/MongoDB</span>.
           </p>
           <p class="about-para">
-            Skilled in RESTful API design, JWT authentication, database optimization, and CI/CD automation with a track record of improving performance and reliability for platforms supporting 100+ concurrent users, including a <span class="highlight">20% cut in latency</span>, a <span class="highlight">25% faster page load</span>, and an <span class="highlight">80% reduction in manual testing effort</span>.
+            Skilled in RESTful API design, JWT authentication, database optimization, and CI/CD automation with a proven track record of improving performance and reliability for platforms supporting 100+ concurrent users, including a <span class="highlight">20% cut in latency</span>, a <span class="highlight">25% faster page load</span>, and an <span class="highlight">80% reduction in manual testing effort</span>.
           </p>
         </div>
       </div>
@@ -184,14 +240,23 @@
       <div class="section-header">
         <span class="prompt">$</span> <span class="sec-title">ls -la projects/</span>
       </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="project-filters">
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+        <button class="filter-btn" data-filter="backend">Backend &amp; Microservices</button>
+        <button class="filter-btn" data-filter="qa">QA &amp; Automation</button>
+      </div>
+
       <div class="projects-grid">
 
         <!-- Project 1 -->
-        <div class="project-card">
+        <div class="project-card" data-category="fullstack backend">
           <div class="card-header">
             <i class="fas fa-shopping-cart folder-icon"></i>
             <div class="card-links">
-              <a href="#" target="_blank" title="GitHub Code"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/rishav1727" target="_blank" title="GitHub Code"><i class="fab fa-github"></i></a>
             </div>
           </div>
           <h3 class="project-title">Full-Stack E-Commerce Platform with Stripe &amp; Microservices</h3>
@@ -211,11 +276,11 @@
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card">
+        <div class="project-card" data-category="fullstack">
           <div class="card-header">
             <i class="fas fa-tasks folder-icon"></i>
             <div class="card-links">
-              <a href="#" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
+              <a href="https://github.com/rishav1727" target="_blank" title="Live Demo"><i class="fas fa-external-link-alt"></i></a>
             </div>
           </div>
           <h3 class="project-title">Task Management App with Analytical Dashboard</h3>
@@ -233,11 +298,11 @@
         </div>
 
         <!-- Project 3 -->
-        <div class="project-card">
+        <div class="project-card" data-category="qa backend">
           <div class="card-header">
             <i class="fas fa-vial folder-icon"></i>
             <div class="card-links">
-              <a href="#" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
+              <a href="https://github.com/rishav1727" target="_blank" title="GitHub Repository"><i class="fab fa-github"></i></a>
             </div>
           </div>
           <h3 class="project-title">Automated API Test Framework &amp; Data Validation Pipeline</h3>
@@ -337,37 +402,37 @@
           <div class="link-info">
             <span class="link-platform">LinkedIn</span>
             <span class="link-handle">Rishav Kumar Gupta</span>
-            <span class="link-desc">Professional network &amp; experience</span>
+            <span class="link-desc">Connect on LinkedIn</span>
           </div>
           <i class="fas fa-arrow-right link-arrow"></i>
         </a>
 
-        <a href="mailto:rishavofficials1727@gmail.com" class="link-card email">
+        <div class="link-card email" title="Click to copy email address">
           <i class="fas fa-envelope link-icon"></i>
           <div class="link-info">
-            <span class="link-platform">Email</span>
+            <span class="link-platform">Email (Click to Copy)</span>
             <span class="link-handle">rishavofficials1727@gmail.com</span>
-            <span class="link-desc">Get in touch via email</span>
+            <span class="link-desc">Get in touch directly</span>
           </div>
-          <i class="fas fa-arrow-right link-arrow"></i>
-        </a>
+          <i class="fas fa-copy link-arrow"></i>
+        </div>
 
-        <a href="tel:+916207113563" class="link-card codechef">
+        <div class="link-card codechef" title="Click to copy phone number">
           <i class="fas fa-phone link-icon"></i>
           <div class="link-info">
-            <span class="link-platform">Phone</span>
+            <span class="link-platform">Phone (Click to Copy)</span>
             <span class="link-handle">+91-6207113563</span>
-            <span class="link-desc">Direct contact</span>
+            <span class="link-desc">Direct call or WhatsApp</span>
           </div>
-          <i class="fas fa-arrow-right link-arrow"></i>
-        </a>
+          <i class="fas fa-copy link-arrow"></i>
+        </div>
 
         <a href="https://github.com/rishav1727" target="_blank" class="link-card github">
           <i class="fab fa-github link-icon"></i>
           <div class="link-info">
             <span class="link-platform">GitHub</span>
-            <span class="link-handle">Rishav Kumar Gupta</span>
-            <span class="link-desc">Repositories &amp; project source code</span>
+            <span class="link-handle">@rishav1727</span>
+            <span class="link-desc">Explore projects &amp; source code</span>
           </div>
           <i class="fas fa-arrow-right link-arrow"></i>
         </a>
