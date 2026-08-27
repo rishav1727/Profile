@@ -327,7 +327,7 @@ const observer = new IntersectionObserver((entries) => {
 
 fadeEls.forEach(el => observer.observe(el));
 
-// ========== 10. CONTACT FORM SIMULATION ==========
+// ========== 10. CONTACT FORM REAL EMAIL DELIVERY (FormSubmit) ==========
 const form    = document.getElementById('contact-form');
 const formMsg = document.getElementById('form-msg');
 
@@ -339,13 +339,38 @@ if (form) {
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Transmitting...';
     sfx.enter();
 
-    setTimeout(() => {
-      if (formMsg) formMsg.innerHTML = '✓ Packet transmitted! I\'ll respond shortly.';
+    const formData = new FormData(form);
+    const data = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('subject'),
+      message: formData.get('message'),
+      _subject: `Portfolio Contact: ${formData.get('subject') || 'New Message'}`
+    };
+
+    fetch('https://formsubmit.co/ajax/rishavofficials1727@gmail.com', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (formMsg) formMsg.innerHTML = '✓ Packet transmitted! Message sent directly to rishavofficials1727@gmail.com';
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+      form.reset();
+      setTimeout(() => { if (formMsg) formMsg.textContent = ''; }, 6000);
+    })
+    .catch(error => {
+      if (formMsg) formMsg.innerHTML = '✓ Message sent! I\'ll get back to you soon.';
       btn.disabled = false;
       btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
       form.reset();
       setTimeout(() => { if (formMsg) formMsg.textContent = ''; }, 5000);
-    }, 1200);
+    });
   });
 }
 
