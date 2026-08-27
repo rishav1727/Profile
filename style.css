@@ -700,12 +700,29 @@ body.crt::before {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
   font-size: 0.82rem;
   color: var(--text-dim);
 }
 .footer-content .prompt { color: var(--green); }
+.footer-linkedin {
+  color: var(--green);
+  border: 1px solid var(--border);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  background: rgba(0, 255, 65, 0.04);
+  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-linkedin:hover {
+  background: var(--green-glow);
+  border-color: var(--green);
+  box-shadow: 0 0 10px var(--green-glow);
+  transform: translateY(-2px);
+}
 .heart { color: var(--red); }
 
 /* ========== RESPONSIVE ========== */
