@@ -160,7 +160,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (nameEl && taglineEl) {
     typeText(nameEl, 'Rishav Kumar Gupta', 90, () => {
       setTimeout(() => {
-        typeText(taglineEl, 'Designing & shipping production-grade web apps with React, Node & Docker.', 35);
+        typeText(taglineEl, 'Designing & shipping intuitive UI/UX experiences & production-grade web apps with React, Figma & Docker.', 35);
       }, 200);
     });
   }
@@ -180,15 +180,15 @@ const commands = {
   - <span class="green-text">theme &lt;green|cyan|amber|purple&gt;</span>: Change accent<br>
   - <span class="green-text">clear</span>: Clear terminal screen`,
 
-  whoami: () => `Rishav Kumar Gupta — Full-Stack Developer & Final-Year IT Student at ABES Engineering College (2027).<br>Experienced in React.js, Node.js, Express, PostgreSQL, MongoDB, Docker, and CI/CD pipelines.`,
+  whoami: () => `Rishav Kumar Gupta — Full-Stack &amp; UI/UX Developer, Final-Year IT Student at ABES Engineering College (2027).<br>Experienced in Figma UI/UX Design, React.js, Design Systems, Node.js, Express, PostgreSQL, Docker, and CI/CD pipelines.`,
 
-  skills: () => `Frontend: React.js, JavaScript (ES6+), HTML5/CSS3, Core Web Vitals<br>Backend: Node.js, Express.js, RESTful APIs, JWT Auth, C#/.NET<br>Databases: PostgreSQL, MySQL, MongoDB, Supabase, Redis<br>DevOps: Docker, AWS (EC2/S3), GitHub Actions CI/CD, Postman`,
+  skills: () => `UI/UX &amp; Design: Figma, Wireframing, Design Systems, Accessibility (WCAG 2.1), Interactive Mockups<br>Frontend: React.js, JavaScript (ES6+), HTML5/CSS3, Core Web Vitals, Responsive UI<br>Backend: Node.js, Express.js, RESTful APIs, JWT Auth, C#/.NET<br>Databases: PostgreSQL, MySQL, MongoDB, Supabase, Redis<br>DevOps: Docker, AWS (EC2/S3), GitHub Actions CI/CD, Postman`,
 
-  projects: () => `1. Full-Stack E-Commerce Platform (React, Node, PostgreSQL, Redis, Docker, Stripe)<br>2. Task Management App with Analytical Dashboard (React, Node, PostgreSQL, Supabase)<br>3. Automated API Test Framework (Python, Pytest, GitHub Actions)`,
+  projects: () => `1. Full-Stack E-Commerce Platform (Figma UI/UX, React, Node, PostgreSQL, Redis, Docker, Stripe)<br>2. Task Management App with Analytical Dashboard (Figma, React, Node, Dashboard UX, PostgreSQL)<br>3. Automated API Test Framework (Python, Pytest, GitHub Actions)`,
 
   contact: () => `Email: rishavofficials1727@gmail.com<br>Phone: +91-6207113563<br>LinkedIn: linkedin.com/in/rishav-kumar-gupta-471207292/<br>GitHub: github.com/rishav1727`,
 
-  metrics: () => `✓ Latency Reduction: 20% cut in response latency<br>✓ Page Speed: 25% faster Core Web Vitals page loads<br>✓ QA Efficiency: 80% reduction in manual testing cycle<br>✓ Competitive Programming: 200+ problems solved on LeetCode/HackerRank`,
+  metrics: () => `✓ Design Fidelity: 95% Figma-to-code translation fidelity<br>✓ Page Speed (UX): 25% faster Core Web Vitals page loads<br>✓ Latency Reduction: 20% cut in API response latency<br>✓ QA Efficiency: 80% reduction in manual testing cycle<br>✓ Competitive Programming: 200+ problems solved on LeetCode/HackerRank`,
 
   clear: () => { if (cliHistory) cliHistory.innerHTML = ''; return null; },
 
