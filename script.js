@@ -143,7 +143,7 @@ window.addEventListener('scroll', () => {
   if (navbar) navbar.style.padding = window.scrollY > 60 ? '0.5rem 2rem' : '0.8rem 2rem';
 });
 
-// ========== 5. TYPED EFFECT ==========
+// ========== 5. TYPED EFFECT & ROLE ROTATOR ==========
 function typeText(el, text, speed = 80, cb) {
   let i = 0;
   el.textContent = '';
@@ -153,15 +153,61 @@ function typeText(el, text, speed = 80, cb) {
   }, speed);
 }
 
+function rotateRoles(el, roles, typeSpeed = 65, deleteSpeed = 35, delayBetween = 2200) {
+  let roleIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+
+  function typeStep() {
+    const currentRole = roles[roleIdx];
+
+    if (isDeleting) {
+      el.textContent = currentRole.substring(0, charIdx - 1);
+      charIdx--;
+    } else {
+      el.textContent = currentRole.substring(0, charIdx + 1);
+      charIdx++;
+    }
+
+    let currentSpeed = isDeleting ? deleteSpeed : typeSpeed;
+
+    if (!isDeleting && charIdx === currentRole.length) {
+      currentSpeed = delayBetween;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      roleIdx = (roleIdx + 1) % roles.length;
+      currentSpeed = 400;
+    }
+
+    setTimeout(typeStep, currentSpeed);
+  }
+
+  typeStep();
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   const nameEl    = document.getElementById('typed-name');
+  const roleEl    = document.getElementById('typed-role');
   const taglineEl = document.getElementById('typed-tagline');
 
-  if (nameEl && taglineEl) {
-    typeText(nameEl, 'Rishav Kumar Gupta', 90, () => {
-      setTimeout(() => {
-        typeText(taglineEl, 'Designing & shipping intuitive UI/UX experiences & production-grade web apps with React, Figma & Docker.', 35);
-      }, 200);
+  if (nameEl) {
+    typeText(nameEl, 'Rishav Kumar Gupta', 80, () => {
+      if (roleEl) {
+        const roles = [
+          'UI/UX Designer & Engineer',
+          'Full-Stack Developer',
+          'Software Development Engineer (SDE)',
+          'Front-End & UI Developer',
+          'IT Engineer'
+        ];
+        rotateRoles(roleEl, roles);
+      }
+      if (taglineEl) {
+        setTimeout(() => {
+          typeText(taglineEl, 'Designing & shipping intuitive UI/UX experiences & production-grade web apps with React, Figma & Docker.', 30);
+        }, 300);
+      }
     });
   }
 });
@@ -180,9 +226,9 @@ const commands = {
   - <span class="green-text">theme &lt;green|cyan|amber|purple&gt;</span>: Change accent<br>
   - <span class="green-text">clear</span>: Clear terminal screen`,
 
-  whoami: () => `Rishav Kumar Gupta — Full-Stack &amp; UI/UX Developer, Final-Year IT Student at ABES Engineering College (2027).<br>Experienced in Figma UI/UX Design, React.js, Design Systems, Node.js, Express, PostgreSQL, Docker, and CI/CD pipelines.`,
+  whoami: () => `Rishav Kumar Gupta — UI/UX Designer, Full-Stack Developer &amp; Final-Year IT Student (ABES, 2027).<br>Experienced in Figma UI/UX Design, React.js, Design Systems, RESTful APIs, Node.js, Express, PostgreSQL, Docker, and CI/CD pipelines.<br><span class="green-text">Open to UI/UX Designer, Full-Stack, SDE &amp; Front-End roles.</span>`,
 
-  skills: () => `UI/UX &amp; Design: Figma, Wireframing, Design Systems, Accessibility (WCAG 2.1), Interactive Mockups<br>Frontend: React.js, JavaScript (ES6+), HTML5/CSS3, Core Web Vitals, Responsive UI<br>Backend: Node.js, Express.js, RESTful APIs, JWT Auth, C#/.NET<br>Databases: PostgreSQL, MySQL, MongoDB, Supabase, Redis<br>DevOps: Docker, AWS (EC2/S3), GitHub Actions CI/CD, Postman`,
+  skills: () => `UI/UX &amp; Design: Figma, Wireframing, Design Systems, Accessibility (WCAG 2.1), Interactive Mockups, Personas<br>Frontend: React.js, JavaScript (ES6+), HTML5/CSS3, Core Web Vitals, Mobile-First UI<br>Backend &amp; SDE: Node.js, Express.js, RESTful APIs, JWT Auth, C#/.NET, OOP/OOAD<br>Databases: PostgreSQL, MySQL, MongoDB, Supabase, Redis<br>DevOps: Docker, AWS (EC2/S3), GitHub Actions CI/CD, Postman`,
 
   projects: () => `1. Full-Stack E-Commerce Platform (Figma UI/UX, React, Node, PostgreSQL, Redis, Docker, Stripe)<br>2. Task Management App with Analytical Dashboard (Figma, React, Node, Dashboard UX, PostgreSQL)<br>3. Automated API Test Framework (Python, Pytest, GitHub Actions)`,
 
